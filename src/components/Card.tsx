@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CardObj } from "./CardGrid";
+import { CardObj } from "./Game";
 
 type CardProps = {
   flippedImage: string;
@@ -25,7 +25,7 @@ const Card = ({
       {card.flipped || card.found ? (
         <CardFlippedImage src={flippedImage} alt="Alt text" />
       ) : (
-        <CardImage src="/images/card_back.png" alt="Alt text" />
+        <CardImage src="/images/card-back.png" alt="Alt text" />
       )}
     </CardContainer>
   );
@@ -43,10 +43,9 @@ const CardContainer = styled.div`
   padding: 0;
 `;
 const CardImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 75%;
   border-radius: 0.4rem;
-  object-fit: cover;
 `;
 const CardFlippedImage = styled.img`
   width: 50%;
