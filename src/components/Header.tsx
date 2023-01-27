@@ -15,7 +15,7 @@ const Header = () => {
 `;
 
 const Heading = styled.h1`
-  color: black;
+  color: #303030;
   font-size: 48px;
   padding-inline: 36px;
 `;

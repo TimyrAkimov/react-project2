@@ -20,6 +20,7 @@ const Game = (): JSX.Element => {
   const [selectedCards, setSelectedCards] = useState<CardObj[]>([]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [gameFinished, setGameFinished] = useState<boolean>(false);
+  let pairsToFind = 8;
 
   const randomiseCards = () => {
     let randomOrderArr = [];
@@ -31,7 +32,6 @@ const Game = (): JSX.Element => {
         ...cardsArr.slice(0, randomIndex),
         ...cardsArr.slice(randomIndex + 1),
       ];
-      console.log(randomOrderArr);
     }
     return randomOrderArr;
   };
@@ -41,8 +41,11 @@ const Game = (): JSX.Element => {
     setRandomCards(newState);
   }
   useEffect(() => {
-    if (score === 8) {
-      setTimeout(() => setGameFinished(true), 1500);
+    if (score === pairsToFind) {
+      setTimeout(() => {
+        setGameFinished(true);
+        setRandomCards(null);
+      }, 1000);
 
     }
   }, [score]);
@@ -51,7 +54,6 @@ const Game = (): JSX.Element => {
     if (selectedCards.length === 2) {
       if (randomCards) {
         setTurns(turns + 1);
-        console.log("Selected Cards: ", selectedCards);
         let newState: CardObj[] = [];
         if (selectedCards[0].name === selectedCards[1].name) {
           setScore(score + 1);
@@ -86,7 +88,6 @@ const Game = (): JSX.Element => {
         setFlippedStatus(cardIndex);
         updateSelectedCards(card);
       } else {
-        console.log("2 cards already selected");
       }
     }
   };
@@ -99,7 +100,6 @@ const Game = (): JSX.Element => {
       ) {
         return;
       }
-      console.log(randomCards[cardIndex]);
       const newState = randomCards.map((card, index) => {
         if (index === cardIndex) {
           return { ...card, flipped: true };
@@ -112,30 +112,40 @@ const Game = (): JSX.Element => {
 
   const updateSelectedCards = (card: CardObj) => {
     if (card.flipped === true) {
-      console.log("Card already flipped.  Choose a different card");
       return;
     }
     if (card.found === true) {
-      console.log("Card already found.  Choose a different card");
       return;
     }
     setSelectedCards([...selectedCards, card]);
   };
 
+  const resetGame = () => {
+    setScore(0);
+    setTurns(0);
+    setSelectedCards([]);
+    setGameFinished(false);
+    const newState = randomiseCards();
+    setRandomCards(newState);
+    setIsPlaying(false);
+  };
+
+  const startGame = () => {
+    const newState = randomiseCards();
+    setRandomCards(newState);
+    setIsPlaying(true);
+  };
+
   return (
     <GameContainer>
       {gameFinished ? (
-        <EndInfo
-          setScore={setScore}
-          setTurns={setTurns}
-          setSelectedCards={setSelectedCards}
-        />
+        <EndInfo resetGame={resetGame} />
       ) : isPlaying ? (
         <CardGrid randomCards={randomCards} handleClick={handleClick} />
       ) : (
         <StartContainer>
           <p>Press Start to play!</p>
-          <StartButton onClick={() => setIsPlaying(true)}>Start</StartButton>
+          <StartButton onClick={startGame}>Start</StartButton>
         </StartContainer>
       )}
       <PlayerInfo turns={turns} score={score} />
@@ -153,6 +163,7 @@ const GameContainer = styled.main`
   height: 750px;
   border: 1px solid black;
   padding: 1rem;
+  background-color: #E8E8E8;
 `;
 
 const StartContainer = styled.div`
@@ -168,6 +179,7 @@ const StartButton = styled.button`
   font-size: 1.5rem;
   padding-block: 0.5rem;
   cursor: pointer;
+  background-color: #COCOCO;
 `;
 
 export default Game;

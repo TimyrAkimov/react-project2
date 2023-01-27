@@ -9,6 +9,10 @@ type CardProps = {
   handleClick: (cardIndex: number, card: CardObj) => void;
 };
 
+type CardFlippedImgProps = {
+  found?: boolean;
+};
+
 const Card = ({
   flippedImage,
   handleClick,
@@ -21,6 +25,7 @@ const Card = ({
       onClick={() => {
         handleClick(cardIndex, card);
       }}
+    found={card.found ? true : false}  
     >
       {card.flipped || card.found ? (
         <CardFlippedImage src={flippedImage} alt="Alt text" />
@@ -31,8 +36,12 @@ const Card = ({
   );
 };
 
-const CardContainer = styled.div`
-  border: 2px solid black;
+const CardContainer = styled.div<CardFlippedImgProps>`
+  box-sizing: border-box;
+  border: ${(props) =>
+    props.found
+      ? "4px inset white"
+      : "1px inset black"};
   border-radius: 0.5rem;
   width: min(10vw, 8rem);
   height: min(15vw, 10rem);
@@ -41,6 +50,7 @@ const CardContainer = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 0;
+  background-color: white;
 `;
 const CardImage = styled.img`
   width: 75%;

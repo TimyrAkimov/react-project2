@@ -27,7 +27,6 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  /* width: min(45vw, 800px); */
   row-gap: 1rem;
   column-gap: 1rem;
   margin: 0 auto;

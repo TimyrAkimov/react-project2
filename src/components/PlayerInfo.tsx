@@ -25,6 +25,7 @@ const Wrapper = styled.section`
   justify-content: space-between;
   width: 70%;
   margin-top: auto;
+  font-size: 20px;
 `;
 
 export default PlayerInfo;
