@@ -1,20 +1,28 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { CardObj } from "./CardGrid";
 
 type CardProps = {
   flippedImage: string;
+
+  card: CardObj;
+  cardIndex: number;
+  handleClick: (cardIndex: number, card: CardObj) => void;
 };
 
-const Card = ({ flippedImage }: CardProps): JSX.Element => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const Card = ({
+  flippedImage,
+  handleClick,
 
-  const handleClick = (): void => {
-    setIsFlipped(!isFlipped);
-  };
-
+  card,
+  cardIndex,
+}: CardProps): JSX.Element => {
   return (
-    <CardContainer onClick={handleClick}>
-      {isFlipped ? (
+    <CardContainer
+      onClick={() => {
+        handleClick(cardIndex, card);
+      }}
+    >
+      {card.flipped || card.found ? (
         <CardFlippedImage src={flippedImage} alt="Alt text" />
       ) : (
         <CardImage src="/images/card_back.png" alt="Alt text" />
@@ -34,18 +42,15 @@ const CardContainer = styled.div`
   cursor: pointer;
   padding: 0;
 `;
-
 const CardImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 0.4rem;
   object-fit: cover;
 `;
-
 const CardFlippedImage = styled.img`
   width: 50%;
   height: 50%;
   border-radius: 0.4rem;
 `;
-
 export default Card;
