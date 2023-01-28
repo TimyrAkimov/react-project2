@@ -1,14 +1,21 @@
 {
   "files": {
-    "main.css": "/react-project2/static/css/index.tsx",
-    "app.css": "/react-project2/static/css/index.css"
-    "main.js": "/react-project2/static/js/pages/Home.tsx",
-    "app.js": "/react-project2/static/js/components/App.tsx"
-    "index.html": "/react-project2/index.html",
+    "index.css": "/react-project2/static/css/index.tsx",
+    "index.css": "/react-project2/static/css/index.css",
+    "App.tsx": "/react-project2/static/js/components/App.tsx",
+    "Card.tsx": "/react-project2/static/js/components/Card.tsx",
+    "CardGrid.tsx": "/react-project2/static/js/components/CardGrid.tsx",
+    "EndInfo.tsx": "/react-project2/static/js/components/EndInfo.tsx",
+    "Game.tsx": "/react-project2/static/components/Game.tsx",
+    "Header.tsx": "/react-project2/static/js/components/Header.tsx",
+    "PlayerInfo.tsx": "/react-project2/static/js/components/PlayerInfo.tsx",
+    "Cards.tsx": "/react-project2/static/libs/Cards.tsx",
+    "Home.tsx": "/react-project2/static/js/pages/Home.tsx",
+    "index.html": "/react-project2/index.html"
   },
   "entrypoints": [
+    "static/js/components/App.tsx",
     "static/css/index.css",
-    "static/css/index.tsx",
-    "static/js/pages/App.tsx"
+    "static/css/index.tsx"
   ]
 }
