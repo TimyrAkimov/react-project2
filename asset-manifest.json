@@ -1,6 +1,6 @@
 {
   "files": {
-    "index.tsx": "/react-project2/static/js/index.tsx",
+    "index.js": "/react-project2/static/js/index.js",
     "index.css": "/react-project2/static/css/index.css",
     "App.tsx": "/react-project2/static/js/components/App.tsx",
     "Card.tsx": "/react-project2/static/js/components/Card.tsx",
@@ -14,7 +14,7 @@
     "index.html": "/react-project2/index.html"
   },
   "entrypoints": [
-    "static/css/index.css",
-    "static/js/index.tsx"
+    "static/js/index.js",
+    "static/css/index.css"
   ]
 }
