@@ -30,7 +30,7 @@ const Card = ({
       {card.flipped || card.found ? (
         <CardFlippedImage src={flippedImage} alt="Alt text" />
       ) : (
-        <CardImage src="/react-project2/images/card-back.png" alt="Alt text" />
+        <CardImage src="react-project2/images/card-back.png" alt="Alt text" />
       )}
     </CardContainer>
   );
