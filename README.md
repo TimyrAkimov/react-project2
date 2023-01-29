@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+Задания 2 по курсу "Основы разработки на React" - создать игру "найди пару". Проект создан с помощью "create-react-app", подробный мануал по пользованию приведен ниже. Использовался JavaScript, TypeScript, React. Стилизация компонентов выполнена с помощью "styled-components": https://styled-components.com/docs . Ссылка на приложение(хост - gh-pages) : https://timyrakimov.github.io/react-project2/
+Документация по TypeScript: https://www.typescriptlang.org/docs/
+Руководство по хостингу веб-сайтов на сервис GitHub Pages: https://docs.github.com/ru/pages
+Как задеплоить React-приложение, созданное с помощью "create-react-app": https://facebook.github.io/create-react-app/docs/deployment
+
+Дальнешие планы:
+- Добавить больше анимации.
+- Добавить "звуки" - например, при выборе карточки, при совпадении карточек и т.д.
+- Сделать более приятный и красивый дизайн.
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -26,8 +37,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
