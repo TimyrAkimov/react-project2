@@ -3,11 +3,11 @@ import Home from "../pages/Home";
 
 const App = (): JSX.Element => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route index element={<Home />}></Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
